@@ -42,11 +42,11 @@ for item in All:
         with open(full_path, 'wb') as f:
             f.write(encrypted_data) # 3. Write (Overwrite original)
 
-        if input() == "yes " and item.endswith(".jpg") :
+        if input() == "yes" and item.endswith(".jpg") :
                 with open("the_secret_key.txt",'rb') as f:
-                    data=f.read(key)
+                    key=f.read()
                     print ("read the coded data  ")
 
                 with open(full_path, 'wb') as f:#? whats the full path wantrs here 
-                    dncrypted_data = fernet.decrypt(key)
-                    f.write(encrypted_data) # 3. Write (Overwrite original)
+                    dncrypted_data = fernet.decrypt(encrypted_data)
+                    f.write(dncrypted_data) # 3. Write (Overwrite original)
